@@ -1,0 +1,28 @@
+---
+- name: Collecting data of hosts
+  hosts: all
+  become: True
+
+  tasks:
+
+  - name: Gather host facts
+    debug:
+      var: ansible_facts
+
+  - name: Gather uptime
+    set_fact:
+      uptime_secs: "{{ansible_facts.date_time.epoch}}"
+
+  - name: display up
+    debug:
+      msg: "Time for uptime is {{uptime_secs}} "
+
+
+  - name: Convert iento DDMMYY
+    set_fact:
+      uptime_formt: "{{'%Y-%m-%d' | strftime(uptime_secs) }}"
+
+
+  - name: display
+    debug:
+      msg: "Time for uptime is {{uptime_formt}} "

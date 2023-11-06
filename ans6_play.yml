@@ -1,0 +1,24 @@
+---
+- name:
+  hosts: all
+  become: True
+
+  vars_files:
+    - sep_var_file.yml
+  
+  tasks:
+
+    - name: Printing var from custum var file
+      debug:
+        msg: "{{myvar}}"
+
+    - name: default vars and vars override
+      include_role:
+        name: myserver
+      vars:
+        myvar2: "This is for overidding defualt var"
+      register: myvar2_result
+
+    - name: Printing overidden value
+      debug:
+        var: myvar2_result.myserver

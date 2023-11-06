@@ -1,0 +1,16 @@
+---
+- name: variables precedence
+  hosts: all
+  become: True
+  
+  vars:
+    host_var: "This is playbook var"
+  tasks:
+
+    - name: To check playbook variable and extra variable precedence
+      debug:
+        msg: "{{host_var}}"
+
+    
+
+
