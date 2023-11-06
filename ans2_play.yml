@@ -1,0 +1,36 @@
+---
+- name: Database conection with different var types
+  hosts: all
+  become: yes
+  
+  vars:
+    db_connect:
+      host: localhost
+      port: 4001
+      user_name: sidi_db
+      psdwrd: mypassword
+      database: db1
+    
+    file_nm: mysql
+
+  tasks:
+    - name: update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install MySQL DBMS
+      apt:
+        name: mysql-server
+        state: present
+    - name: MySQL configuration
+      template:
+        src: sql_conf.j2
+        dest: /etc/mysql/{{file_nm}}.conf
+      notify:
+        - Restart MySQL
+
+  handlers:
+    - name: Restart MySQL
+      service:
+        name: mysql
+        state: restarted
