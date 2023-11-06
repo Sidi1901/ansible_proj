@@ -1,0 +1,47 @@
+---
+- name: Web server config with vars
+  hosts: all
+  become: true
+  
+  vars:
+    server_name: "server1"
+    port: 80
+    doc_root: /var/www/html
+
+  tasks:
+
+    - name: install apache server
+      apt: 
+        name: apache2
+        state: latest
+
+    - name: Start apache server
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Virtual host setup
+      template:
+        src: virtual_host_conf.j2
+        dest: /etc/apache2/sites-available//{{server_name}}.conf
+      notify:
+        - Reload apache
+
+    - name: virtual host enable
+      command: a2ensite {{server_name}}
+      notify:
+        - Reload apache
+
+    - name: Document root permision setup
+      file:
+        path: "{{doc_root}}"
+        owner: www-data
+        group: www-data
+        recurse: yes
+
+  handlers:
+    - name: Reload apache
+      service:
+        name: apache2
+        state: reloaded  

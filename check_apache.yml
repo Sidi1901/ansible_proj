@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+ 
+  - name: install apache2 package
+    command: dpkg -1 | grep -q apache2
+    register: apache2_status
+
+  - name: checking installation
+    debug: 
+      msg: "Apache is {{'installed' if apache2_status.rc == 0 else 'not insstalled'}}" 
