@@ -1,0 +1,29 @@
+---
+- name: Global and local vars
+  hosts: all
+  become: True
+
+  vars:
+    glb_var: This is global var
+
+  tasks:
+
+    - name: Defining local var
+      set_fact:
+        local_var: This is local var
+
+    - name: Printing global var
+      debug:
+        var: glb_var
+
+    - name: Printing local var
+      debug:
+        var: local_var
+
+    - name: Set local var
+      set_fact: 
+        local_var: This is new local var
+
+    - name: Printing new val of  local var
+      debug:
+        var: local_var
