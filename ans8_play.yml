@@ -1,0 +1,24 @@
+---
+- name: Installing packages depending upon OS distribution
+  hosts: all
+  become: True
+  
+  tasks:
+   
+    - name: For Debian OS systems
+      apt:
+       name:
+        - nginx
+        - python3 
+        - git
+       state: present
+      when: "'Debian' in ansible_facts.distribution_file_variety"
+
+    - name: For RedhHat  OS systems
+      yum:
+       name:
+        - nginx
+        - python3 
+        - git
+       state: present
+      when: "'RedHat' in ansible_facts.distribution_file_variety"
