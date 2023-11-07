@@ -1,0 +1,10 @@
+---
+- name: Conditional configuration file
+  hosts: all
+  become: True
+
+  roles:
+    - conditional_temp
+
+  vars:
+    - server_role: "webserver"

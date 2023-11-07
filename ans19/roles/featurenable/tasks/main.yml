@@ -1,0 +1,7 @@
+---
+- name: Selecting feature
+  ansible.builtin.template:
+    src: '../templates/conf.j2'
+    dest: '~/ans15conf.txt'
+  vars:
+    enable_https: True

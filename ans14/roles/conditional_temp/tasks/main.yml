@@ -1,0 +1,7 @@
+---
+- name: Selecting template
+  template:
+    src: '../templates/conf.j2'
+    dest: '~/ans14_conditional_conf.txt'
+  vars:
+    server_role: dbserver

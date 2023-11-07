@@ -1,0 +1,8 @@
+---
+- name: Enabling feature
+  hosts: all
+  become: True
+  
+  roles:
+    - featurenable
+

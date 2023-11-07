@@ -1,0 +1,10 @@
+{% if server_role == "webserver" %}
+Server role :  web server
+
+{% elif server_role == "dbserver" %}
+Server role: database server
+
+{% else %}
+Server role : unknown
+
+{% endif  %}

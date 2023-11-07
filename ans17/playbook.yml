@@ -4,7 +4,6 @@
   become: True
 
   roles:
-    - customhost
+    - regexconfig
   
-  vars:
-    my_ip: 192.168.1.32
+ 
