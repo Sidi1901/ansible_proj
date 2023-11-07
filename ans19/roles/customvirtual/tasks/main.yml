@@ -1,0 +1,8 @@
+---
+- name: Changing parameters
+  ansible.builtin.template:
+    src: '../templates/conf.j2'
+    dest: '~/ans19conf.txt'
+  vars:
+    server_nm: "myserver"
+    server_prt: 467
