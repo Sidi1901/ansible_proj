@@ -1,0 +1,5 @@
+---
+- name: Configuration by using template
+  template:
+    src: '../templates/conf.j2'
+    dest: '~/ans13op.txt'

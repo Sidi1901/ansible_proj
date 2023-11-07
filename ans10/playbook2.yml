@@ -1,0 +1,8 @@
+---
+- name: Installation
+  hosts: all
+  become: True
+
+  roles:
+   - webserver
+

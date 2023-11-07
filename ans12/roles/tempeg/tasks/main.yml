@@ -1,0 +1,6 @@
+---
+- name: Creating template
+  template: 
+    src: '../templates/temp_config.j2'
+    dest: '~/trail.txt'
+

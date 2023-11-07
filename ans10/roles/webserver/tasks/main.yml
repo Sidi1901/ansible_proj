@@ -1,0 +1,6 @@
+---
+- name: Installing..
+  ansible.builtin.apt:
+    - name: python3
+    - state: present
+

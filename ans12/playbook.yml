@@ -1,0 +1,11 @@
+---
+- name: "dynamic file config"
+  hosts: all
+  become: True
+
+  roles:
+    - tempeg
+
+  vars:
+    user_name_inp: "Meena"
+    num_inp: 12345

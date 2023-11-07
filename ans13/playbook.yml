@@ -1,0 +1,7 @@
+---
+- name: Custom config file
+  hosts: all
+  become: True
+
+  roles:
+    - confiles

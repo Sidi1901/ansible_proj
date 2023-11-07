@@ -1,0 +1,9 @@
+---
+- name: testing
+  hosts: all
+  become: True
+
+  tasks:
+    - name: var test
+      debug:
+        var: ansible_facts
