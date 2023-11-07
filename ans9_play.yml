@@ -1,0 +1,16 @@
+---
+- name:
+  hosts: all
+  become: True
+
+  tasks:
+   - name: Checking the status of package
+     ansible.builtin.package:
+      name: pandoc
+     register: package_status
+
+   - name: out
+     debug:
+      var: package_status
+
+  

@@ -11,7 +11,7 @@
 
   - name: Gather uptime
     set_fact:
-      uptime_secs: "{{ansible_facts.date_time.epoch}}"
+      uptime_secs: "{{ansible_facts.uptime_seconds}}"
 
   - name: display up
     debug:
