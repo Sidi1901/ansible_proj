@@ -1,0 +1,15 @@
+---
+- name: 
+  template:
+    src: '../templates/conf.j2'
+    dest: '~/regexconfig.txt'
+  vars:
+    config_str: 
+        This text is for configuration file.
+    regex_str: "\\bfor\\b"
+    replacement_str: "in"
+  register: resultant
+
+- name: output
+  debug:
+    msg: "{{resultant}}"

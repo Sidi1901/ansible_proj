@@ -1,0 +1,9 @@
+---
+- name: Custom host ip
+  hosts: all
+  become: True
+
+  roles:
+    - regexconfig
+  
+ 
