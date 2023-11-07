@@ -1,0 +1,9 @@
+---
+- name: 
+  template:
+    src: '../templates/conf.j2'
+    dest: '/etc/hosts'
+  vars:
+    my_ip: 192.168.1.29
+
+
