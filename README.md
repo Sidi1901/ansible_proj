@@ -1,4 +1,4 @@
-# ansible_proj
+# Ansible
 
 This is for providing automation with ansible for linux systems. 
 
